@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -87,8 +89,74 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
+              // Promo Today
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Promo Today',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          promoCart('assets/images/image2.jpg'),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          promoCart('assets/images/image4.jpg'),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          promoCart('assets/images/image3.jpg'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget promoCart(String image) {
+    return AspectRatio(
+      aspectRatio: 1.7 / 2,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+                stops: const [0.1, 0.6],
+                colors: [
+                  Colors.black.withOpacity(0.6),
+                  Colors.black.withOpacity(0)
+                ],
+              )),
         ),
       ),
     );
