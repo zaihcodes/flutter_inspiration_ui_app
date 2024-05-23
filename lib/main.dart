@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Promo Today',
+                      "Today",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -127,6 +127,40 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      'Most viewed',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          latestCart(
+                              'assets/images/image3.jpg', 'Ahead of time.'),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          latestCart('assets/images/image5.jpg',
+                              'Good times are ahead'),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          latestCart(
+                              'assets/images/image4.jpg', 'Best is yet to be'),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -157,6 +191,42 @@ class HomeScreen extends StatelessWidget {
                   Colors.black.withOpacity(0)
                 ],
               )),
+        ),
+      ),
+    );
+  }
+
+  Widget latestCart(String image, String text) {
+    return AspectRatio(
+      aspectRatio: 2 / 1.5,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              stops: const [0.1, 0.6],
+              colors: [
+                Colors.black.withOpacity(0.7),
+                Colors.black.withOpacity(0)
+              ],
+            ),
+          ),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text(
+                text,
+                style: TextStyle(color: Colors.grey.shade300, fontSize: 18),
+              ),
+            ),
+          ),
         ),
       ),
     );
