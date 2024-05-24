@@ -2,4 +2,4 @@
 
 ## ScreenShots
 
-![my_screenshots](./screenshots/Screenshot_1.png)
+<img src="./screenshots/Screenshot_1.png" height="600em"/>
